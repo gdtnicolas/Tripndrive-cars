@@ -132,7 +132,7 @@ public class Site {
         this.agencyEnd = agencyEnd;
     }
 
-    public String toSring(){
+    public String toString(){
         return this.label + " : " + this.code;
     }
 }

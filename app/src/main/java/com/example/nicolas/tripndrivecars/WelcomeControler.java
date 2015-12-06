@@ -3,7 +3,7 @@ package com.example.nicolas.tripndrivecars;
 /**
  * Created by Nicolas on 06/12/2015.
  */
-public class WelcomeControler implements TripndriveAPIHelper.TripndriveAPIListener{
+public class WelcomeControler implements TripndriveAPIHelperSites.TripndriveAPIListener{
 
     private WelcomeActivity controledActivity;
 
@@ -12,8 +12,8 @@ public class WelcomeControler implements TripndriveAPIHelper.TripndriveAPIListen
     }
 
     public void onActivityInitialized(){
-        TripndriveAPIHelper tripndriveAPIHelper = new TripndriveAPIHelper(this);
-        tripndriveAPIHelper.loadSites();
+        TripndriveAPIHelperSites tripndriveAPIHelperSites = new TripndriveAPIHelperSites(this);
+        tripndriveAPIHelperSites.load();
     }
 
 
@@ -26,7 +26,7 @@ public class WelcomeControler implements TripndriveAPIHelper.TripndriveAPIListen
 
     @Override
     public void onSitesFailed() {
-        controledActivity.DisplayConnectionError();
+        controledActivity.DisplayError("Could not connect to internet");
 
     }
 }

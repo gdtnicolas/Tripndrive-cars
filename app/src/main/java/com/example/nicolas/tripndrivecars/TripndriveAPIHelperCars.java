@@ -2,6 +2,7 @@ package com.example.nicolas.tripndrivecars;
 
 import android.util.Log;
 
+import com.example.nicolas.tripndrivecars.model.Car;
 import com.example.nicolas.tripndrivecars.model.Model;
 import com.example.nicolas.tripndrivecars.model.Site;
 
@@ -14,15 +15,15 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 /**
- * Created by Nicolas on 04/12/2015.
+ * Created by Nicolas on 06/12/2015.
  */
-public class TripndriveAPIHelper implements Callback<List<Site>> {
+public class TripndriveAPIHelperCars implements Callback<List<Car>> {
 
     private Retrofit retrofit;
     private TripndriveService tripndriveService;
     private TripndriveAPIListener listener;
 
-    public TripndriveAPIHelper(TripndriveAPIListener listener){
+    public TripndriveAPIHelperCars(TripndriveAPIListener listener){
 
         this.listener=listener;
         Retrofit retrofit = new Retrofit.Builder()
@@ -34,17 +35,23 @@ public class TripndriveAPIHelper implements Callback<List<Site>> {
 
     }
 
-    public void loadSites(){
-        Call<List<Site>> call = tripndriveService.getListSites();
+    public void load(String endDate, String endTime, int max, int offset, String siteCode,
+                          String startDate, String startTime){
+        Call<List<Car>> call = tripndriveService.getListCars(endDate,endTime,max,offset,siteCode,
+        startDate, startTime);
         //asynchronous call
         call.enqueue(this);
     }
 
+
+
     @Override
-    public void onResponse(Response<List<Site>> response, Retrofit retrofit) {
-        Model.getInstance().addSites(response.body());
-        Log.d("REST", "Success");
-        this.listener.onSitesLoaded();
+    public void onResponse(Response<List<Car>> response, Retrofit retrofit) {
+        Log.d("REST", "Success cars");
+        Log.d("LALA", "Size "+ response.body().size());
+
+        Model.getInstance().addCars(response.body());
+        this.listener.onCarsLoaded();
 
         //Model.getInstance().display();
 
@@ -52,12 +59,12 @@ public class TripndriveAPIHelper implements Callback<List<Site>> {
 
     @Override
     public void onFailure(Throwable throwable) {
-        Log.d("REST","Fail");
-        this.listener.onSitesFailed();
+        Log.d("REST","Fail cars");
+        this.listener.onCarsFailed();
     }
 
     public interface TripndriveAPIListener{
-        public void onSitesLoaded();
-        public void onSitesFailed();
+        public void onCarsLoaded();
+        public void onCarsFailed();
     }
 }

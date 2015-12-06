@@ -28,9 +28,9 @@ public class WelcomeActivity extends Activity{
         startActivity(intent);
     }
 
-    public void DisplayConnectionError(){
-        Toast.makeText(this, "Could not connect to Internet", Toast.LENGTH_LONG).show();
+
+    public void DisplayError(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
 
     }
-
 }

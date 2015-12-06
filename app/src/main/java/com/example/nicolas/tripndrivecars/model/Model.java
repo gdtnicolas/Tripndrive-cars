@@ -13,9 +13,15 @@ public final class Model {
     private static volatile Model instance = null;
 
     private List<Site> sites;
+    private List<Car> cars;
+
+
+
     private Model() {
+
         super();
         sites = new ArrayList<>();
+        cars = new ArrayList<>();
     }
 
     public final static Model getInstance() {
@@ -37,9 +43,24 @@ public final class Model {
         this.sites.addAll(sites);
     }
 
-    public void display(){
+    public void addCars(List<Car> cars){
+        this.cars.addAll(cars);
+    }
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void displayCars(){
+        for(int i = 0; i<this.cars.size();i++){
+            Log.d("Model", this.cars.get(i).toString());
+        }
+    }public void displaySites(){
         for(int i = 0; i<this.sites.size();i++){
-            Log.d("Model", this.sites.get(i).toSring());
+            Log.d("Model", this.sites.get(i).toString());
         }
     }
 
