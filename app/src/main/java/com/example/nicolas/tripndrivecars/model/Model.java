@@ -14,6 +14,8 @@ public final class Model {
 
     private List<Site> sites;
     private List<Car> cars;
+    private Car selectedCar;
+    private Site selectedSite;
 
 
 
@@ -22,6 +24,8 @@ public final class Model {
         super();
         sites = new ArrayList<>();
         cars = new ArrayList<>();
+        selectedCar = new Car();
+        selectedSite = new Site();
     }
 
     public final static Model getInstance() {

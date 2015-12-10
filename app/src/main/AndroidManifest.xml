@@ -22,6 +22,14 @@
             android:name=".FormActivity"
             android:label="@string/title_activity_form" >
         </activity>
+        <activity
+            android:name=".ListCarsActivity"
+            android:label="@string/title_activity_list_cars" >
+        </activity>
+        <activity
+            android:name=".CarActivity"
+            android:label="@string/title_activity_car" >
+        </activity>
     </application>
 
 </manifest>

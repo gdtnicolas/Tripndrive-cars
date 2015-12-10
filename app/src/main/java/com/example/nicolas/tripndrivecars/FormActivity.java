@@ -1,6 +1,7 @@
 package com.example.nicolas.tripndrivecars;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.nicolas.tripndrivecars.model.Model;
@@ -25,9 +27,11 @@ import retrofit.Retrofit;
 
 public class FormActivity extends Activity{
 
+
     private FormControler myControler;
     private ImageView startDateImage;
     private ImageView endDateImage;
+    private ImageView locationImage;
     private Button searchCarsButton;
 
     @Override
@@ -38,10 +42,13 @@ public class FormActivity extends Activity{
         myControler = new FormControler(this);
         startDateImage = (ImageView)findViewById(R.id.start_date_button);
         endDateImage = (ImageView)findViewById(R.id.end_date_button);
+        locationImage = (ImageView)findViewById(R.id.location_button);
         searchCarsButton = (Button)findViewById(R.id.search_cars_button);
+
 
         startDateImage.setImageResource(R.drawable.ic_date_range_black_24dp);
         endDateImage.setImageResource(R.drawable.ic_date_range_black_24dp);
+        locationImage.setImageResource(R.drawable.ic_room_black_24dp);
         searchCarsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +58,11 @@ public class FormActivity extends Activity{
 
 
 
+    }
+
+    public void goToListCarsActivity(){
+        Intent intent = new Intent(FormActivity.this, ListCarsActivity.class);
+        startActivity(intent);
     }
 
     public void disableSearchButton() {

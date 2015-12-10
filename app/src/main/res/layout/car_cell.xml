@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+
+    <TextView
+        android:id="@+id/car_price"
+        android:textSize="24sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/car_name"
+        android:textColor="@color/mdtp_transparent_black"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/car_price"
+        android:layout_toStartOf="@+id/car_price"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <ImageView
+        android:id="@+id/doors_icon"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/doors_number"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/doors_icon"
+        android:layout_toEndOf="@id/doors_icon"/>
+
+    <ImageView
+        android:id="@+id/place_icon"
+        android:layout_marginLeft="@dimen/icon_margin_left"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/doors_number"
+        android:layout_toEndOf="@id/doors_number"/>
+
+    <TextView
+        android:id="@+id/place_number"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/place_icon"
+        android:layout_toEndOf="@id/place_icon"/>
+
+    <ImageView
+        android:id="@+id/trans_icon"
+        android:layout_marginLeft="@dimen/icon_margin_left"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/place_number"
+        android:layout_toEndOf="@id/place_number"/>
+
+    <TextView
+        android:id="@+id/trans_type"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/trans_icon"
+        android:layout_toEndOf="@id/trans_icon"/>
+
+    <ImageView
+        android:id="@+id/gaz_icon"
+        android:layout_marginLeft="@dimen/icon_margin_left"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/trans_type"
+        android:layout_toEndOf="@id/trans_type"/>
+
+    <TextView
+        android:id="@+id/gaz_type"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/gaz_icon"
+        android:layout_toEndOf="@id/gaz_icon"/>
+
+    <ImageView
+        android:id="@+id/gps_icon"
+        android:layout_marginLeft="@dimen/icon_margin_left"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/gaz_type"
+        android:layout_toEndOf="@id/gaz_type"/>
+
+    <ImageView
+        android:id="@+id/clim_icon"
+        android:layout_marginLeft="@dimen/icon_margin_left"
+        android:layout_below="@id/car_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/gps_icon"
+        android:layout_toEndOf="@id/gps_icon"/>
+
+
+
+
+
+</RelativeLayout>

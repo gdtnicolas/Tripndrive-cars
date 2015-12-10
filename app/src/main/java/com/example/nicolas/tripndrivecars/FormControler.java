@@ -31,6 +31,7 @@ public class FormControler implements TripndriveAPIHelperCars.TripndriveAPIListe
     @Override
     public void onCarsLoaded() {
         Model.getInstance().displayCars();
+        controlledActivity.goToListCarsActivity();
 
     }
 

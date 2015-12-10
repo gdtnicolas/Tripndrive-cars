@@ -10,5 +10,7 @@
     <string name="end_date_hint">Date de fin</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_form">FormActivity</string>
+    <string name="title_activity_list_cars">ListCarsActivity</string>
+    <string name="title_activity_car">CarActivity</string>
 
 </resources>
