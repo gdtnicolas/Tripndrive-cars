@@ -18,9 +18,7 @@ import java.util.List;
  */
 public class CarAdapter extends ArrayAdapter<Car> {
 
-
-        //tweets est la liste des models à afficher
-        public CarAdapter(Context context, List<Car> cars) {
+     public CarAdapter(Context context, List<Car> cars) {
             super(context, 0, cars);
         }
 
@@ -56,10 +54,8 @@ public class CarAdapter extends ArrayAdapter<Car> {
                 convertView.setTag(viewHolder);
             }
 
-            //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
             Car car = getItem(position);
 
-            //il ne reste plus qu'à remplir notre vue
 
             viewHolder.carPrice.setText(String.valueOf(car.getFormatedPrice()));
             viewHolder.carName.setText(car.getCarName());

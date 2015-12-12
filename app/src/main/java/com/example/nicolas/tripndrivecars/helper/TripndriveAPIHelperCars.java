@@ -1,7 +1,8 @@
-package com.example.nicolas.tripndrivecars;
+package com.example.nicolas.tripndrivecars.helper;
 
 import android.util.Log;
 
+import com.example.nicolas.tripndrivecars.TripndriveService;
 import com.example.nicolas.tripndrivecars.model.Car;
 import com.example.nicolas.tripndrivecars.model.Model;
 import com.example.nicolas.tripndrivecars.model.Site;
@@ -48,10 +49,8 @@ public class TripndriveAPIHelperCars implements Callback<List<Car>> {
     @Override
     public void onResponse(Response<List<Car>> response, Retrofit retrofit) {
         Log.d("REST", "Success cars");
-        Log.d("LALA", "Size "+ response.body().size());
 
-        Model.getInstance().addCars(response.body());
-        this.listener.onCarsLoaded();
+        this.listener.onCarsLoaded(response.body());
 
         //Model.getInstance().display();
 
@@ -64,7 +63,7 @@ public class TripndriveAPIHelperCars implements Callback<List<Car>> {
     }
 
     public interface TripndriveAPIListener{
-        public void onCarsLoaded();
+        public void onCarsLoaded(List<Car> cars);
         public void onCarsFailed();
     }
 }

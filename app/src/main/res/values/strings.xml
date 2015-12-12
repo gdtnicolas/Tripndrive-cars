@@ -12,5 +12,6 @@
     <string name="title_activity_form">FormActivity</string>
     <string name="title_activity_list_cars">ListCarsActivity</string>
     <string name="title_activity_car">CarActivity</string>
+    <string name="no_car_place_holder">Pas de voiture trouvée.</string>
 
 </resources>

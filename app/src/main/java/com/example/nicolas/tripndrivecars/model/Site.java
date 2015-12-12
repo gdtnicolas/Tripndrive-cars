@@ -36,6 +36,11 @@ public class Site {
         this.agencyEnd = agencyEnd;
     }
 
+    @Override
+    public String toString(){
+        return this.label;
+    }
+
     public String getCode() {
         return code;
     }
@@ -132,7 +137,4 @@ public class Site {
         this.agencyEnd = agencyEnd;
     }
 
-    public String toString(){
-        return this.label + " : " + this.code;
-    }
 }

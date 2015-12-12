@@ -16,6 +16,8 @@ public final class Model {
     private List<Car> cars;
     private Car selectedCar;
     private Site selectedSite;
+    private CustomDate currentStartDate;
+    private CustomDate currentEndDate;
 
 
 
@@ -24,8 +26,7 @@ public final class Model {
         super();
         sites = new ArrayList<>();
         cars = new ArrayList<>();
-        selectedCar = new Car();
-        selectedSite = new Site();
+
     }
 
     public final static Model getInstance() {
@@ -37,6 +38,30 @@ public final class Model {
             }
         }
         return Model.instance;
+    }
+
+    public Car getSelectedCar() {
+        return selectedCar;
+    }
+
+    public List<Site> getSites() {
+        return sites;
+    }
+
+    public void setSites(List<Site> sites) {
+        this.sites = sites;
+    }
+
+    public void setSelectedCar(Car selectedCar) {
+        this.selectedCar = selectedCar;
+    }
+
+    public Site getSelectedSite() {
+        return selectedSite;
+    }
+
+    public void setSelectedSite(Site selectedSite) {
+        this.selectedSite = selectedSite;
     }
 
     public void addSite(Site site){
@@ -68,5 +93,28 @@ public final class Model {
         }
     }
 
+    public boolean isCurrentStartDateEmpty(){
+        return currentStartDate==null;
+    }
+    public boolean isCurrentEndDateEmpty(){
+        return currentEndDate==null;
+    }
+    public boolean isSelectedSiteEmpty(){
+        return selectedSite==null;
+    }
+    public CustomDate getCurrentStartDate() {
+        return currentStartDate;
+    }
 
+    public void setCurrentStartDate(CustomDate currentStartDate) {
+        this.currentStartDate = currentStartDate;
+    }
+
+    public CustomDate getCurrentEndDate() {
+        return currentEndDate;
+    }
+
+    public void setCurrentEndDate(CustomDate currentEndDate) {
+        this.currentEndDate = currentEndDate;
+    }
 }
