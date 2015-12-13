@@ -13,5 +13,11 @@
     <string name="title_activity_list_cars">ListCarsActivity</string>
     <string name="title_activity_car">CarActivity</string>
     <string name="no_car_place_holder">Pas de voiture trouvée.</string>
+    <string name="form_activity_title">Réserver une voiture</string>
+    <string name="list_cars_activity_title">Choisir sa voiture</string>
+    <string name="error_site">Site introuvable !</string>
+    <string name="error_start_date">Date de début vide !</string>
+    <string name="error_end_date">Date de fin vide !</string>
+    <string name="error_end_date_before">Date de fin avant la date de début !</string>
 
 </resources>

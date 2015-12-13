@@ -1,9 +1,10 @@
 package com.example.nicolas.tripndrivecars.controller;
 
+import android.graphics.AvoidXfermode;
 import android.graphics.Color;
-import android.widget.DatePicker;
 
 import com.example.nicolas.tripndrivecars.FormActivity;
+import com.example.nicolas.tripndrivecars.R;
 import com.example.nicolas.tripndrivecars.helper.TripndriveAPIHelperCars;
 import com.example.nicolas.tripndrivecars.listener.DateListener;
 import com.example.nicolas.tripndrivecars.model.Car;
@@ -28,18 +29,38 @@ public class FormController implements TripndriveAPIHelperCars.TripndriveAPIList
 
     public void onSearchButtonClick(){
         boolean doRequest = true;
-        if(Model.getInstance().isSelectedSiteEmpty()){
+        String error = "";
+
+
+        if(!Model.getInstance().isCurrentStartDateEmpty()
+                &&!Model.getInstance().isCurrentEndDateEmpty()
+                &&!Model.getInstance().getCurrentEndDate().isAfter(Model.getInstance().getCurrentStartDate())){
             doRequest = false;
-            controlledActivity.setLocationBorderTo(Color.RED);
+            controlledActivity.setEndDateBorderTo(Color.RED);
+            error = controlledActivity.getResources().getString(R.string.error_end_date_before);
         }
-        if(Model.getInstance().isCurrentStartDateEmpty()){
-            doRequest = false;
-            controlledActivity.setStartDateBorderTo(Color.RED);
-        }
+
         if(Model.getInstance().isCurrentEndDateEmpty()){
             doRequest = false;
             controlledActivity.setEndDateBorderTo(Color.RED);
+            error = controlledActivity.getResources().getString(R.string.error_end_date);
+
         }
+
+        if(Model.getInstance().isCurrentStartDateEmpty()){
+            doRequest = false;
+            controlledActivity.setStartDateBorderTo(Color.RED);
+            error = controlledActivity.getResources().getString(R.string.error_start_date);
+
+        }
+
+        if(Model.getInstance().isSelectedSiteEmpty()){
+            doRequest = false;
+            controlledActivity.setLocationBorderTo(Color.RED);
+            error = controlledActivity.getResources().getString(R.string.error_site);
+
+        }
+
 
         if(doRequest) {
             controlledActivity.disableSearchButton();
@@ -53,6 +74,8 @@ public class FormController implements TripndriveAPIHelperCars.TripndriveAPIList
                     Model.getInstance().getCurrentEndDate().getDay();
             String siteCode = Model.getInstance().getSelectedSite().getCode();
             tripndriveAPIHelperCars.load(endDate, "19:30", 100, 0, siteCode, startDate, "10:30");
+        }else{
+            controlledActivity.displayError(error);
         }
     }
 
@@ -93,7 +116,7 @@ public class FormController implements TripndriveAPIHelperCars.TripndriveAPIList
     @Override
     public void onCarsFailed() {
         controlledActivity.enableSearchButton();
-        controlledActivity.DisplayError("Cannot load cars");
+        controlledActivity.displayError("Cannot load cars");
 
     }
 
@@ -113,6 +136,7 @@ public class FormController implements TripndriveAPIHelperCars.TripndriveAPIList
     }
 
     public void onLocationTouched(Site site) {
+        controlledActivity.hideKeyboard();
         Model.getInstance().setSelectedSite(site);
         controlledActivity.setLocationTextTo(site.toString());
     }

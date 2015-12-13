@@ -41,4 +41,20 @@ public class CustomDate {
         this.year = year;
     }
 
+    public boolean isAfter(CustomDate date) {
+        boolean result = false;
+        if (this.year > date.year) {
+            result = true;
+        } else if (this.year == date.year) {
+            if (this.month > date.month) {
+                result = true;
+            } else if (this.month == date.month) {
+                if (this.day >= date.day) {
+                    result = true;
+                }
+            }
+        }
+        return result;
+    }
+
 }

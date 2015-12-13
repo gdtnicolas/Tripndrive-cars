@@ -1,11 +1,14 @@
 package com.example.nicolas.tripndrivecars;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -94,6 +97,11 @@ public class FormActivity extends Activity{
 
     }
 
+    public void hideKeyboard(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(
+                INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);    }
+
     public void goToListCarsActivity(){
         Intent intent = new Intent(FormActivity.this, ListCarsActivity.class);
         startActivity(intent);
@@ -111,7 +119,7 @@ public class FormActivity extends Activity{
 
     }
 
-    public void DisplayError(String s) {
+    public void displayError(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
 
     }
@@ -130,16 +138,17 @@ public class FormActivity extends Activity{
     }
 
     public void setLocationBorderTo(int color) {
-        locationText.setBackgroundColor(color);
+        //Pas encore implémenté
     }
 
     public void setStartDateBorderTo(int color) {
-        startDateText.setBackgroundColor(color);
+        //Pas encore implémenté
     }
 
     public void setEndDateBorderTo(int color) {
-        endDateText.setBackgroundColor(color);
+        //Pas encore implémenté
     }
+
 
     @Override
     public void onResume() {

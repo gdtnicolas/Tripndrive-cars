@@ -49,8 +49,6 @@ public class CarAdapter extends ArrayAdapter<Car> {
                 viewHolder.gpsIcon = (ImageView) convertView.findViewById(R.id.gps_icon);
                 viewHolder.climIcon = (ImageView) convertView.findViewById(R.id.clim_icon);
 
-
-
                 convertView.setTag(viewHolder);
             }
 

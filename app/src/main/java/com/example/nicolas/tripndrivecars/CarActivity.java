@@ -13,6 +13,7 @@ import com.squareup.picasso.Callback;
 
 public class CarActivity extends Activity {
 
+
     private ImageView carPhoto;
     private ProgressBar loadingProgressBar;
     private CarController myController;

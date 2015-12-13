@@ -6,7 +6,12 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.nicolas.tripndrivecars.WelcomeActivity">
 
-    <TextView android:text="This is a loading page" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/logo_tripndrive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
 
 </RelativeLayout>

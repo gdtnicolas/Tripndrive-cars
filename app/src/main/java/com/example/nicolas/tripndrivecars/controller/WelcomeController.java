@@ -35,6 +35,6 @@ public class WelcomeController implements TripndriveAPIHelperSites.TripndriveAPI
 
     @Override
     public void onSitesFailed() {
-        controlledActivity.DisplayError("Could not connect to internet");
+        controlledActivity.displayError("Could not connect to internet");
     }
 }
