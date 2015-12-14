@@ -117,4 +117,8 @@ public final class Model {
     public void setCurrentEndDate(CustomDate currentEndDate) {
         this.currentEndDate = currentEndDate;
     }
+
+    public boolean isCarsNull() {
+        return cars==null;
+    }
 }

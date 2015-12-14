@@ -31,6 +31,8 @@ public class ListCarsActivity extends Activity implements RecyclerCarAdapter.Rec
         myController = new ListCarsController(this);
         mCarsRecyclerView = (RecyclerView)findViewById(R.id.list_cars_view);
         placeHolder = (TextView)findViewById(R.id.no_car_place_holder);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mCarsRecyclerView.setLayoutManager(mLayoutManager);
         myController.onStartedActivity();
 
 
@@ -43,9 +45,7 @@ public class ListCarsActivity extends Activity implements RecyclerCarAdapter.Rec
         // in content do not change the layout size of the RecyclerView
         mCarsRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mCarsRecyclerView.setLayoutManager(mLayoutManager);
+
         mCarsRecyclerView.setAdapter(adapter);
 
         mCarsRecyclerView.setOnClickListener(new View.OnClickListener() {

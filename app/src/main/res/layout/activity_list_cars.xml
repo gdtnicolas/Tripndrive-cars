@@ -31,14 +31,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/no_car_place_holder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:text="@string/no_car_place_holder"/>
+
         </RelativeLayout>
+
+    <TextView
+        android:id="@+id/no_car_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:text="@string/no_car_place_holder"/>
 
 </RelativeLayout>

@@ -22,7 +22,7 @@ public class ListCarsController {
     }
 
     public void onStartedActivity() {
-        if(Model.getInstance().getCars().isEmpty()){
+        if(Model.getInstance().isCarsNull()||Model.getInstance().getCars().isEmpty()){
             controlledActivity.setListCarsVisibilityTo(View.GONE);
             controlledActivity.setPlaceHolderVisibilityTo(View.VISIBLE);
         }else {

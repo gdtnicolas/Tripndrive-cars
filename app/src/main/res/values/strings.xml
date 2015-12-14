@@ -20,5 +20,6 @@
     <string name="error_start_date">Date de début vide !</string>
     <string name="error_end_date">Date de fin vide !</string>
     <string name="error_end_date_before">Date de fin avant la date de début !</string>
+    <string name="a_day_text"> / jour</string>
 
 </resources>

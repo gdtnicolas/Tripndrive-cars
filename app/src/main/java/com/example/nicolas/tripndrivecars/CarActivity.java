@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.nicolas.tripndrivecars.controller.CarController;
 import com.squareup.picasso.Picasso;
@@ -17,6 +18,12 @@ public class CarActivity extends Activity {
     private ImageView carPhoto;
     private ProgressBar loadingProgressBar;
     private CarController myController;
+
+    private TextView category;
+    private TextView name;
+    private TextView year;
+    private TextView km;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +31,10 @@ public class CarActivity extends Activity {
 
         carPhoto = (ImageView)findViewById(R.id.car_photo);
         loadingProgressBar = (ProgressBar)findViewById(R.id.loading_progress_bar);
+        category = (TextView)findViewById(R.id.car_category_text);
+        name = (TextView)findViewById(R.id.car_name_text);
+        year = (TextView)findViewById(R.id.car_year_text);
+        km = (TextView)findViewById(R.id.car_km_text);
         myController = new CarController(this);
         myController.onActivityStarted();
 
@@ -47,5 +58,13 @@ public class CarActivity extends Activity {
                         //carPhoto.setImageResource(R.drawable.car_place_holder);
                     }
                 });
+    }
+
+    public void setPrincipalCard(String category, String name, String year, String km){
+
+        this.category.setText(category);
+        this.name.setText(name);
+        this.year.setText(year);
+        this.km.setText(km);
     }
 }
