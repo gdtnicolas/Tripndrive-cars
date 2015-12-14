@@ -43,6 +43,37 @@ public class Car {
     public Car() {
     }
 
+    public String getFormatedExtraPrice(){
+        String price = String.valueOf(getDailyPrice());
+        if(!price.isEmpty() && price.length()>=2){
+            price=price.substring(0,price.length()-2)+","
+                    +price.substring(price.length()-2,price.length())+"€";
+        }
+        return price;
+    }
+
+    public String getExtraKmFormatedPrice() {
+        String price = String.valueOf(getExtraKmPrice());
+        if(!price.isEmpty() && price.length()>2){
+            price=price.substring(0,price.length()-2)+","
+                    +price.substring(price.length()-2,price.length())+"€";
+        }else if (!price.isEmpty() && price.length()==2){
+            price="0,"+price+"€";
+        }else if (!price.isEmpty() && price.length()==1){
+            price="0,à"+price+"€";
+        }
+        return price;
+    }
+
+    public String getFormatedDailyPrice(){
+        String price = String.valueOf(getDailyPrice());
+        if(!price.isEmpty() && price.length()>=2){
+            price=price.substring(0,price.length()-2)+","
+                    +price.substring(price.length()-2,price.length())+"€";
+        }
+        return price;
+    }
+
     public String getFormatedPrice(){
         String price = String.valueOf(getPrice());
         if(!price.isEmpty() && price.length()>=2){
@@ -284,6 +315,7 @@ public class Car {
     public String toString(){
         return this.modelBrand + " " +this.modelName;
     }
+
 
 
 }

@@ -9,7 +9,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/form_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:background="#3F51B5"
         android:minHeight="?android:attr/actionBarSize">
@@ -108,8 +108,9 @@
             android:layout_below="@+id/end_date_text"
             android:layout_height="wrap_content"
             android:text="@string/search_button_text"
+            android:background="#FF6D00"
+            android:textColor="@color/mdtp_white"
             android:layout_marginTop="16dp"
-
             />
 
     </RelativeLayout>

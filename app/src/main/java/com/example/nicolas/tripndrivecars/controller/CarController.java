@@ -25,5 +25,8 @@ public class CarController {
                 selectedCar.getModelBrand()+" "+selectedCar.getModelName(),
                 String.valueOf(selectedCar.getCarYear()),
                 selectedCar.getKilometerLabel());
+        controlledActivity.setDailyPrice(selectedCar.getFormatedDailyPrice());
+        controlledActivity.setKmInclued(selectedCar.getKmIncluded(),selectedCar.getExtraKmFormatedPrice());
+        controlledActivity.setPrice(selectedCar.getFormatedPrice());
     }
 }

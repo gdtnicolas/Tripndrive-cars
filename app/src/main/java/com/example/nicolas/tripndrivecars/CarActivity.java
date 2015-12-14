@@ -3,9 +3,11 @@ package com.example.nicolas.tripndrivecars;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nicolas.tripndrivecars.controller.CarController;
 import com.squareup.picasso.Picasso;
@@ -24,6 +26,12 @@ public class CarActivity extends Activity {
     private TextView year;
     private TextView km;
 
+    private TextView dailyPrice;
+    private TextView kmInclued;
+    private TextView pricePerKm;
+
+    private Button rentButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +43,10 @@ public class CarActivity extends Activity {
         name = (TextView)findViewById(R.id.car_name_text);
         year = (TextView)findViewById(R.id.car_year_text);
         km = (TextView)findViewById(R.id.car_km_text);
+        kmInclued = (TextView)findViewById(R.id.km_inclued);
+        pricePerKm = (TextView)findViewById(R.id.price_km);
+        dailyPrice = (TextView)findViewById(R.id.price_a_day);
+        rentButton = (Button)findViewById(R.id.rent_button);
         myController = new CarController(this);
         myController.onActivityStarted();
 
@@ -66,5 +78,25 @@ public class CarActivity extends Activity {
         this.name.setText(name);
         this.year.setText(year);
         this.km.setText(km);
+    }
+
+    public void setDailyPrice(String formatedDailyPrice) {
+        dailyPrice.setText(formatedDailyPrice);
+    }
+
+    public void setKmInclued(int kmInclued, String pricePerKm){
+        this.kmInclued.setText(kmInclued+getResources().getString(R.string.km_inclued));
+        this.pricePerKm.setText(" + " + pricePerKm + getResources().getString(R.string.additionnal_price));
+    }
+
+    public void setPrice(String formatedPrice) {
+        rentButton.setText(getResources().getString(R.string.rent_for)+" "+formatedPrice+" !");
+        rentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CarActivity.this, "To be continued...", Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 }

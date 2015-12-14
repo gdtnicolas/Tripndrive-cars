@@ -19,6 +19,12 @@
             android:textSize="24sp"/>
     </android.support.v7.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/car_toolbar">
+
     <RelativeLayout
         android:layout_below="@+id/car_toolbar"
         android:paddingTop="@dimen/activity_vertical_margin"
@@ -39,13 +45,15 @@
             <RelativeLayout
                 android:id="@+id/layout_photo"
                 android:layout_alignParentLeft="true"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
                 android:layout_width="@dimen/car_photo_width"
                 android:layout_height="@dimen/car_photo_height">
                 <ImageView
                     android:id="@+id/car_photo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
                 <ProgressBar
                     android:id="@+id/loading_progress_bar"
                     android:layout_width="wrap_content"
@@ -56,45 +64,44 @@
                     />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/car_category_text"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@+id/layout_photo"
-                android:layout_toEndOf="@+id/layout_photo"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="category"/>
-            <TextView
-                android:id="@+id/car_name_text"
-                android:layout_marginTop="4dp"
-                android:textSize="14sp"
-                android:layout_toRightOf="@+id/layout_photo"
-                android:layout_toEndOf="@+id/layout_photo"
-                android:layout_below="@+id/car_category_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="name"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/layout_photo"
+                    android:layout_toEndOf="@+id/layout_photo"
+                    android:layout_centerVertical="true">
+                <TextView
+                    android:id="@+id/car_category_text"
+                    android:layout_marginTop="4dp"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="category"/>
+                <TextView
+                    android:id="@+id/car_name_text"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/car_category_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="name"/>
 
-            <TextView
-                android:id="@+id/car_year_text"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@+id/layout_photo"
-                android:layout_toEndOf="@+id/layout_photo"
-                android:layout_below="@+id/car_name_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="year"/>
+                <TextView
+                    android:id="@+id/car_year_text"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@+id/car_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="year"/>
 
-            <TextView
-                android:id="@+id/car_km_text"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@+id/layout_photo"
-                android:layout_toEndOf="@+id/layout_photo"
-                android:layout_below="@+id/car_year_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="kilometers"/>
+                <TextView
+                    android:id="@+id/car_km_text"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@+id/car_year_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="kilometers"/>
+                    </RelativeLayout>
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
@@ -111,10 +118,13 @@
             android:layout_below="@+id/principal_card">
 
             <RelativeLayout
+                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/price_a_day"
+                android:textSize="24sp"
+                android:textColor="#3F51B5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -122,17 +132,77 @@
                 android:layout_toRightOf="@+id/price_a_day"
                 android:layout_toEndOf="@+id/price_a_day"
                 android:layout_width="wrap_content"
+                android:layout_alignBottom="@+id/price_a_day"
                 android:layout_height="wrap_content"
                 android:text="@string/a_day_text"/>
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/km_inclued_card"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/price_card"
+            android:layout_toStartOf="@+id/price_card"
+            android:layout_alignBottom="@+id/price_card"
+            android:layout_below="@+id/principal_card">
 
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/km_inclued"
+                    android:layout_centerVertical="true"
+                    android:textColor="#3F51B5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/price_km"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/km_inclued"
+                    android:layout_toEndOf="@+id/km_inclued"
+                    android:layout_width="wrap_content"
+                    android:layout_alignBottom="@+id/km_inclued"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
 
+        </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/infos_card"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/km_inclued_card">
+
+            <RelativeLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informations sur la voiture"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/rent_button"
+            android:layout_below="@+id/infos_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF6D00"
+            android:textColor="@color/mdtp_white"
+            android:text="Réserver !"/>
 
         </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
